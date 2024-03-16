@@ -1,0 +1,90 @@
+This is CAN project of food system
+
+for Signup
+==================================================================================
+['email','password','password2','first_name','last_name','address','phone_number']
+
+for login
+=================================
+['email','password','password2']
+returns refresh token and access token
+
+################################################################################################
+
+[IsAdminUser]
+for category upload
+===========================================================
+fields are [' name, descriptions']
+
+
+for all update send put request
+===========================================
+send pk of category
+
+---fields are ['pk, name, descriptions']
+
+
+for updating or editing food item (patch)
+=========================================================================
+# send pk of category and fiels u want to change
+
+---fields are ['pk, name, descriptions']
+
+for deleting category
+===================================
+send pk of category 
+
+################################################################################################
+
+[IsAdminUser]
+for food item upload use form data as it contains image too
+===========================================================
+fields are [' category, Name, descriptions, quantity, price, image']
+
+
+for all update send put request
+===========================================
+send pk of food item
+
+fields are ['pk, category, Name, descriptions, quantity, price, image']
+
+
+for updating or editing food item (patch)
+=========================================================================
+# send pk of food item and fiels u want to change
+
+fields are ['pk, category, Name, descriptions, quantity, price, image']
+
+for deleting food item
+===================================
+send pk of food item
+
+################################################################################################
+
+[IsAuthenticated]
+# for menu hit get request by sending token in authentication
+---------------------------------------------------------------------
+
+################################################################################################
+
+[IsAuthenticated]
+for updating cart both post and patch can be used
+for patch in cartitem
+======================
+{
+    "cart_item_id": 4,
+    "quantity":2  // updates all value to current one 
+}
+
+for Adding item in cart (post)
+==============================
+{
+    "food_item_id": 1,
+    "quantity":1   // use -ve for subtracting the item value
+}
+
+for delete send id of cartitem
+===================================
+{
+    "cart_item_id": 2
+}
