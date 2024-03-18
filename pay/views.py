@@ -21,7 +21,7 @@ class CreateOrderAPI(APIView):
 
         try:
             cart = Cart.objects.get(
-                user=user, is_active=True
+                user=user
             )  # Assuming an `is_active` field to find the active cart
         except Cart.DoesNotExist:
             return Response(
